@@ -7,4 +7,9 @@ The repository to train javascript
     npm test
     yarn test
     ```
-# javascript-for-tester
+- `start` run the index file, import the file you want to test to index and execute
+    ```
+    npm start
+    yarn start
+    ```
+- `note` self define the run command in package.json
