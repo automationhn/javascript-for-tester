@@ -2,8 +2,14 @@
  * Follow the list of student below, try to get and print to the console the student(s) that satified the conditions:
  * 
  * 1. Print the list of student with the full-name (fistname lastName)
+ *  Expectation:
+ *      Nguyen Minh Nhat
+ *      Nguyen Thi Duc Hanh
+ *      Tran Thoai
+ *      Huynh Hao
+ *      Do Tai
  * 
- * 2. Print the list of student with the full-name by this format firstName middleName lastName, if the middleName is undefined, use the genre to populate the middle name:
+ * 2. Print the list of student with the full-name by this format firstName middleName lastName, if the middleName is undefined, use the gender to populate the middle name:
  * Ex: 
  * {
         id: 16,
@@ -43,19 +49,38 @@
             word: 9,
             excel: 9
         }
-    }
+    } -> Huynh Minh Hao
+
+*   Expectation:
+*      Nguyen Minh Nhat
+*      Nguyen Thi Duc Hanh
+*      Tran Thi Thoai
+*      Huynh Minh Hao
+*      Do Thi Tai
 
     3. Print the student has the avarage score is highest and lowest as format:
-    The best student is Nguyen Van A with 9.5 score
-    The worst student is Nguyen Van B with 3.3 score
+    Expectation:
+        The best student is Nguyen Van A with 9.5 score
+        The worst student is Nguyen Van B with 3.3 score
 
     4. Sort the list of student by the id with 2 way Acending and Descending and print it out with the id and average score only
+    Expectation:
+        Nhat - 6.9
+        Hanh - 7.0
+        Hao - 8.9
+        Thoai - 9.0
+        Tai - 10
 
     5. Print out the list of student (full fields) without the best and the worst student
+    Expectation:
+        Hanh - 7.0
+        Hao - 8.9
+        Thoai - 9.0
 
     6. Print the student has the age is highest and lowest as format:
-    The youngest: Nguyen Van A - 25 year olds
-    The youngest: Nguyen Van B - 100 year olds
+    Ex:
+        The youngest: Nguyen Van A - 25 year olds
+        The youngest: Nguyen Van B - 100 year olds
 
  */
 
