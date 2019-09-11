@@ -1,0 +1,23 @@
+/node_modules/
+*.log
+.vscode
+coverage/
+.idea/
+.vscode/launch.json
+hs-inventoryapp.log
+yarn-error.log
+.vs/
+.sonar_lock
+*.txt
+transpiledLib
+dist_lib
+dist
+*.log.*
+.nyc_output/
+
+# local config files
+conf/env/local.yml
+*.DS_Store
+*.rdb
+/cash-backup/
+*.iml
