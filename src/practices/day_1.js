@@ -85,81 +85,21 @@
  */
 
  import { orderBy } from 'lodash';
+
  import generateFullName from '../utils/generateFullName';
  import calculateAverageScore from '../utils/calculateAverageScore';
+ import logger, { newLine } from '../utils/logger';
 
-const studentList = [
-    {
-        id: 16,
-        firstName: 'Nhat',
-        lastName: 'Nguyen',
-        middleName: 'Minh',
-        birthdate: '1990-01-21',
-        isMale: true,
-        scores: {
-            math: 5,
-            word: 6,
-            excel: 9
-        }
-    },
-    {
-        id: 24,
-        firstName: 'Hanh',
-        lastName: 'Nguyen',
-        middleName: 'Thi Duc',
-        birthdate: '1990-06-24',
-        isMale: false,
-        scores: {
-            math: 7,
-            word: 7,
-            excel: 7
-        }
-    },
-    {
-        id: 56,
-        firstName: 'Thoai',
-        lastName: 'Tran',
-        birthdate: '1993-11-25',
-        isMale: false,
-        scores: {
-            math: 6,
-            word: 6,
-            excel: 6
-        }
-    },
-    {
-        id: 4,
-        firstName: 'Hao',
-        lastName: 'Huynh',
-        birthdate: '1983-06-09',
-        isMale: true,
-        scores: {
-            math: 9,
-            word: 9,
-            excel: 9
-        }
-    },
-    {
-        id: 69,
-        firstName: 'Tai',
-        lastName: 'Do',
-        birthdate: '1994-06-09',
-        isMale: false,
-        scores: {
-            math: 6.9,
-            word: 6.9,
-            excel: 6.9
-        }
-    }
-];
+ import studentList from './data/studentList'
 
 /* --- ĐÁP ÁN --- */
 
 // Câu 1
-console.log('=== CÂU 1 ===');
+logger('=== CÂU 1 ===');
+newLine();
 // Cách 1: Dùng for thuần, giống như những ví dụ trước giờ mình đã học nên sẽ dễ nắm bắt hơn
 
-console.log('--- CÁCH 1 ---');
+logger('--- CÁCH 1 ---');
 for (let i = 0; i < studentList.length; i++) {
     // khởi tao biến student với từ khoá const bởi student chỉ dùng để lấy thông tin của sinh viên tương ứng với mỗi index i
     const student = studentList[i];
@@ -174,11 +114,11 @@ for (let i = 0; i < studentList.length; i++) {
     // cuối cùng nối firstName vào để hoàn thành tên đầy đủ
     fullName = fullName + ' ' + student.firstName;
     // In tên đầy đủ ra màn hình
-    console.log(fullName);
+    logger(fullName);
 }
-
+newLine();
 // Cách 2: dùng forEach thì sẽ đỡ tốn công code hơn, code nhìn gọn dễ đọc 
-console.log('--- CÁCH 2 ---');
+logger('--- CÁCH 2 ---');
 studentList.forEach((student) => {
     // khai báo và gán giá các giá trị cho firstName - tên, middleName - tên lót và lastName - họ thônng qua đối tương sinh viên (student)
     const { firstName, middleName, lastName } = student;
@@ -200,13 +140,13 @@ studentList.forEach((student) => {
     // join là function của array nên khi gọi phải có cặp ngoặc đơn 
     // ' ' do mình muốn cách ra bởi khoảng trắng nên truyền khoảng trắng (' ') vô trong function join như là tham số
     // cơ chế hoạt động của hàm join là lấy phần từ đầu tiên + khoảng trắng + đến khi hết phần tử cuối cùng
-    console.log(names.join(' '));
+    logger(names.join(' '));
 });
-
+newLine();
 
 // Câu 2: 
 // Cách 1: dùng forEach, mình nên tập xài cái này cho quen cũng tốt, vì sau này nó sé gọn, xài tối ưu hoá đc hơn là cái for kiểu cũ
-console.log('=== CÂU 2 ===');
+logger('=== CÂU 2 ===');
 
 studentList.forEach((student) => {
     // Khai báo biến để lấy thông tin của sinh viên 1 lần, do vòng lặp forEach sẽ chạy từ phần từ đầu tiên tới phần tử cuối cùng của màng
@@ -258,13 +198,14 @@ studentList.forEach((student) => {
         names.push(middleName);
     } 
     names.push(firstName);
-    console.log(names.join(' '));
+    logger(names.join(' '));
 });
+newLine();
 
 // Câu 3:
-console.log('=== CÂU 3 ===');
+logger('=== CÂU 3 ===');
 const studentsWithCalculateScore = studentList.map((student) => {
-    return Object.assign({}, { averageScore: calculateAverageScore(student.scores), fullName: generateFullName(student) }, student );
+    return Object.assign({}, { averageScore: calculateAverageScore(student.scores), fullName: generateFullName(student, true) }, student );
 });
 
 const sortedStudentByScore = orderBy(studentsWithCalculateScore, ['averageScore'], ['desc']);
@@ -272,5 +213,25 @@ const sortedStudentByScore = orderBy(studentsWithCalculateScore, ['averageScore'
 const bestStudent = sortedStudentByScore[0];
 const worstStudent = sortedStudentByScore[sortedStudentByScore.length - 1];
 
-console.log(`The best student is ${bestStudent.fullName} with ${bestStudent.averageScore} score`);
-console.log(`The worst student is ${worstStudent.fullName} with ${worstStudent.averageScore} score`);
+logger(`The best student is ${bestStudent.fullName} with ${bestStudent.averageScore} score`);
+logger(`The worst student is ${worstStudent.fullName} with ${worstStudent.averageScore} score`);
+newLine();
+
+// Câu 4:
+logger('=== CÂU 4 ===');
+
+
+logger('> Ordered by Descending');
+const sortedDescStudentByScore = orderBy(studentsWithCalculateScore, ['averageScore'], ['desc']);
+sortedDescStudentByScore.forEach((student) => {
+    logger(`${student.fullName} - ${student.averageScore}`);
+});
+
+newLine();
+logger('> Ordered by Ascending');
+
+const sortedAscStudentByScore = orderBy(studentsWithCalculateScore, ['averageScore'], ['asc']);
+sortedAscStudentByScore.forEach((student) => {
+    logger(`${student.fullName} - ${student.averageScore}`);
+});
+newLine();

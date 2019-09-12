@@ -6,7 +6,7 @@ function main() {
     // const res = args[2];
     // console.log(res);
     getName('Hanh');
-    reduceExample();
+    // reduceExample();
 };
 
 main();

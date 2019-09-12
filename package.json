@@ -4,9 +4,10 @@
   "description": "",
   "main": "test.js",
   "scripts": {
-    "test": "mocha \"__test__/**/*.js\"",
-    "run": "babel-node index.js",
-    "r": "babel-node practices/day_1.js"
+    "test": "mocha \"src/__test__/**/*.js\"",
+    "run": "babel-node src/index.js",
+    "r": "babel-node src/practices/day_1.js",
+    "compile": "babel src --out-dir .compiled --source-maps --watch"
   },
   "keywords": [],
   "author": "",

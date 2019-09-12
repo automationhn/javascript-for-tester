@@ -16,6 +16,7 @@ dist
 .nyc_output/
 package-lock.json
 yarn.lock
+.compiled/
 
 # local config files
 conf/env/local.yml
