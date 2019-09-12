@@ -17,13 +17,13 @@ Gợi ý: thêm field { skill: ['javascript', 'testing', 'automationUI'] }
 5. In ra danh sách những số lẻ có 2 chữ số chia hết cho 3 và 9 (*)
 )
 
-6. In ra danh sách những số có index chẵn
+6. In ra danh sách những số có index chẵn của dãy số (*)
 
-6. Tính tổng của những số trên theo 2 cách (1 cách dùng hàm reduce, cách còn lại thoải mái)
+7. Tính tổng của dãy số (*) theo 2 cách (1 cách dùng hàm reduce, cách còn lại thoải mái)
 
-7. Sắp xếp dãy số kể trên theo thứ tự giảm dần
+8. Sắp xếp dãy số (*) kể trên theo thứ tự giảm dần
 
-8. Tính tích của 2 số lớn nhất và nhỏ nhất của dãy số trên
+9. Tính tích của 2 số lớn nhất và nhỏ nhất của dãy số (*)
 
-9. Với kết quả của (*) lấy ra những số chỉ chia hết cho 3 và sắp xếp theo thứ tự giảm dần
+10. Với kết quả của dãy số (*) lấy ra những số chỉ chia hết cho 3 và sắp xếp theo thứ tự giảm dần
 */
