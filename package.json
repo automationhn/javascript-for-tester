@@ -5,12 +5,15 @@
   "main": "test.js",
   "scripts": {
     "test": "mocha \"__test__/**/*.js\"",
-    "run": "babel-node index.js"
+    "run": "babel-node index.js",
+    "r": "babel-node practices/day_1.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "fsevents": "^2.0.7",
+    "lodash": "^4.17.15",
     "mocha": "^6.2.0"
   },
   "devDependencies": {
