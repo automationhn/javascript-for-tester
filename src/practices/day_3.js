@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /*
 1. In ra danh sách những số lẻ có 2 chữ số chia hết cho 3 và 9 (*)
 
@@ -21,7 +22,7 @@ a. Sắp xếp mảng trên theo thứ tự tăng dần và giảm dần
 b. Tìm index của số chẵn lớn nhất trong mảng (*)
     Gợi ý: filter để lấy những số chẵn của mảng, sau đó tìm số lớn nhất, dùng giá trị đó tìm index của nó
 
-c. Tính tổng của những số âm trong mảng (*)
+    c. Tính tổng của những số âm trong mảng (*)
 */
 
 /*
