@@ -7,7 +7,10 @@
     "test": "mocha \"src/__test__/**/*.js\"",
     "run": "babel-node src/index.js",
     "r": "babel-node src/practices/day_1.js",
-    "compile": "babel src --out-dir .compiled --source-maps --watch"
+    "compile": "babel src --out-dir .compiled --source-maps --watch",
+    "lint": "node_modules/.bin/eslint src || true",
+    "lint-h": "node_modules/.bin/eslint src",
+    "lint-fix": "node_modules/.bin/eslint --fix src"
   },
   "keywords": [],
   "author": "",

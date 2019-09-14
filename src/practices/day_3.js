@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /*
 1. In ra danh sách những số lẻ có 2 chữ số chia hết cho 3 và 9 (*)
 
