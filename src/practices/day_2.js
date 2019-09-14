@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable no-trailing-spaces */
 /*
 1. Tạo 1 đối tượng (object) nhân viên gồm name, birthDate, gender
 Gợi ý: 
