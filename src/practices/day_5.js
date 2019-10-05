@@ -9,8 +9,8 @@ ex: tien_nghi = ['TV', 'may lanh', 'mini-bar', 'lo suoi', 'bon tam', 'phong tam 
 
 2. Xoá tiện nghi có độ dài lớn nhất trong danh sách tiện nghi
 ex: 
-  - 'ti vi' có độ dài 2
-  - 'may lanh' có độ dài là 7
+  - 'ti vi' có độ dài 5
+  - 'may lanh' có độ dài là 8
 
 3. Tạo 1 đối tượng định nghĩa cho phòng nghỉ của khách sạn 
 ex: 
