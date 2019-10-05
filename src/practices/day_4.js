@@ -1,13 +1,21 @@
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable max-len */
 /*
-1. Tạo ra 1 mảng số tự nhiên bé hơn 200 với chữ số hàng đơn vị là 1
-ex: array1 = [1, 11, 21, 31, ...]
+1. Tạo ra mảng số tự nhiên chia hết cho 5 trong khoảng [-200, 200]
 
-2. Tạo ra mảng mới từ mảng cũ bằng cách cộng 2 phần tử liên tiếp lại với nhau
-ex: array2 = [12, 52, ...] 12 = 1 + 11; 52 = 21 + 31
+2. Cho mảng array1 = [0, 1]
+Tạo ra các phần tử tiếp theo bằng cách cộng 2 phần từ liền trước lại và thêm vào mảng sao cho phần tử cuối cùng phải có 3 kí tự
+0 + 1 = 1
+1 + 1 = 2
+1 + 2 = 3
+ex: array1 = [0, 1, 1, 2, 3, 5, 8, 13, ...]
 
-3. Tính tổng của 2 số lớn nhất từ array1 và array2
+3. Cho mảng array2 = [1, 2]
+Tạo ra các phần tử tiếp theo bằng cách nhân 2 phần từ liền trước lại và thêm vào mảng sao cho phần tử cuối cùng phải có 8 chữ số
+1 * 2 = 2
+2 * 2 = 4
+1 + 2 = 3
+ex: array2 = [1, 2, 2, 4, 8, 32, ...]
 
 4. Tạo ra mảng hiển thị danh sách tiện nghi phòng nghỉ và sắp xếp theo thứ tự alphabet và ngược lại
 ex: tien_nghi = ['TV', 'may lanh', 'mini-bar', 'lo suoi', 'bon tam', 'phong tam dung']
@@ -26,7 +34,7 @@ var phong = {
   dia_diem: 'Cantho'
 }
 
-7. Thêm những thuộc tính về tiện nghi và đối tượng vừa tạo
+7. Thêm những thuộc tính về tiện nghi vào đối tượng vừa tạo
 
 8. Xoá thuộc tính dia_diem ra khỏi đối tượng 
 
@@ -34,4 +42,5 @@ var phong = {
 
 10. Viết phương thức in ra thông tin phòng từ đối tượng phòng theo định đạng sau:
 ex: 1_luxury_kingsize_Cantho
+note: có thể truyền tham số theo 1 danh sách hoặc truyền cả đối tương phòng nghỉ vào phương thức vừa tạo
 */
