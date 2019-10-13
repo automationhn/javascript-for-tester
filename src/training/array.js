@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 /* eslint-disable indent */
 /* eslint-disable max-len */
 /* eslint-disable no-trailing-spaces */
@@ -5,7 +6,7 @@
 /* eslint-disable prefer-template */
 /* eslint-disable no-console */
 /* eslint-disable eol-last */
-import logger, { newLine } from '../utils/logger';
+import logger, { newLine, newLineWithDash } from '../utils/logger';
 
 /*
 Khai báo mảng:
@@ -215,26 +216,57 @@ newLine();
 */
 const danhSachSoPhong = [619, 302, 304, 403, 404, 305];
 
+const timSoChan = function (so) {
+  return so % 2 === 0;
+};
+const danhSachSoChan = danhSachSoPhong.filter(timSoChan);
+
+logger(`13. Danh sách phòng số chẵn: ${danhSachSoChan}`);
+newLine();
+
 const danhSachPhongSoChan = danhSachSoPhong.filter((element) => element % 2 === 0);
 
-logger(`13. Danh sách phòng số chẵn: ${danhSachPhongSoChan}`);
-newLine();
+logger(`13.1. Danh sách phòng số chẵn: ${danhSachPhongSoChan}`);
+newLineWithDash();
 
 /*
 14. find()
 - hàm này tương tự với for, dùng để duyệt qua các phần tử trong mảng và trả về phần tử đầu tiên thoả điền kiện
 -> với danh sách số phòng nhưng bên trên, tìm ra phòng chẵn
 */
+const soChanDauTien = danhSachSoPhong.find(timSoChan);
+
+logger(`14. Phòng số chẵn đầu tiên là: ${soChanDauTien}`);
+newLine();
 
 const phongSoChanDauTien = danhSachSoPhong.find((element) => element % 2 === 0);
 
-logger(`14. Phòng số chẵn đầu tiền là: ${phongSoChanDauTien}`);
+logger(`14.1 Phòng số chẵn đầu tiên là: ${phongSoChanDauTien}`);
+newLineWithDash();
 
-/*
+/* 15.
 ***NOTE: so sánh giữa filter và find
 * Giống nhau:
 - 2 hàm này gần như tương tự nhau khi cùng duyệt qua mảng và dựa vào điều kiện để lấy ra phần tử
+- 2 hàm này nhận tham số là 1 hàm khác với nhiệm vụ kiểm tra điều kiện của mỗi phần được duyệt qua và trả về kết quả true | false
+-> nếu true, thoả điều kiện, false bỏ qua phần tử đó
 * Khác nhau: 
 - find sẽ ngưng duyệt mảng khi tìm đc phần tử thoả điều kiện và trả nó ra luôn -> find sẽ return ra 1 phần tử là chuỗi, số hoặc đối tượng
 - filter sẽ duyệt qua tất cả các phần tử của mảng và lấy ra những phần tử nào thoả điều kiện -> filter sẽ return ra 1 mảng có thể là mảng rỗng hoặc chứa những phần tử thoả điều kiện truyền vào
  */
+
+ /*
+ So sánh forEach, filter và find
+ - for, forEach chỉ duyệt qua mảng với những logic nào đó được viết bên trong
+ - filter, find: duyệt qua mảng và trả ra kết quả thoả điều kiện với logic được viết bên trong
+ */
+
+ const mangSoChan = [];
+ danhSachSoPhong.forEach((so) => {
+   if (timSoChan(so) === true) {
+     mangSoChan.push(so);
+   } 
+ });
+
+logger(`15 Danh sách phòng số chẵn là: ${mangSoChan}`);
+newLineWithDash();
