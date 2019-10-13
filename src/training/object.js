@@ -1,3 +1,5 @@
+/* eslint-disable guard-for-in */
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable dot-notation */
 /* eslint-disable no-new-object */
 /* eslint-disable indent */
@@ -68,6 +70,18 @@ logger(`Cách 2: Bàn phím hiệu: ${banPhim['nhaSanXuat']}`);
 const thuocTinhNhaSanXuat = 'nhaSanXuat';
 logger(`Cách 3: Bàn phím hiệu: ${banPhim[thuocTinhNhaSanXuat]}`);
 
+newLineWithDash();
+
+/*
+Dùng for...in để lấy tất cả các key và giá trị trong object
+Cái này tương tự với for, forEach khi duyệt qua mảng
+*/
+logger('CÁCH TRUY XUẤT TẤT CẢ THUỘC TÍNH CỦA ĐỐI TƯỢNG');
+newLine();
+
+for (const property in banPhim) {
+  logger(`Thuộc tính ${property} có giá trị là ${banPhim[property]}`);
+}
 newLineWithDash();
 
 /*
