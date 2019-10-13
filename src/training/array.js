@@ -5,7 +5,7 @@
 /* eslint-disable prefer-template */
 /* eslint-disable no-console */
 /* eslint-disable eol-last */
-import { newLine } from '../utils/logger';
+import logger, { newLine } from '../utils/logger';
 
 /*
 Khai báo mảng:
@@ -195,3 +195,46 @@ newLine();
 
 console.log(`11. Danh sách số lộn lộn ĐÃ được ĐẢO NGƯỢC: ${danhSachSoLonXon.reverse().join(' - ')}`);
 newLine();
+
+/*
+12. forEach()
+- hàm này tương tự với for, dùng để duyệt qua các phần tử trong mảng, nhưng không dùng tới index
+*/
+const propeties = ['Vinpearl Hội An', 'The Grand HoTram', 'Teracotta', 'Phoenix'];
+
+logger('12. Danh sách khách sạn: ');
+propeties.forEach((element) => {
+  console.log(element);
+});
+newLine();
+
+/*
+13. filter()
+- hàm này tương tự với for, dùng để duyệt qua các phần tử trong mảng và trả ra mảng mới chứa những phần tử thoả điều kiện
+-> cho danh sách số phòng như sau, hãy lấy ra những phòng là số chẵn
+*/
+const danhSachSoPhong = [619, 302, 304, 403, 404, 305];
+
+const danhSachPhongSoChan = danhSachSoPhong.filter((element) => element % 2 === 0);
+
+logger(`13. Danh sách phòng số chẵn: ${danhSachPhongSoChan}`);
+newLine();
+
+/*
+14. find()
+- hàm này tương tự với for, dùng để duyệt qua các phần tử trong mảng và trả về phần tử đầu tiên thoả điền kiện
+-> với danh sách số phòng nhưng bên trên, tìm ra phòng chẵn
+*/
+
+const phongSoChanDauTien = danhSachSoPhong.find((element) => element % 2 === 0);
+
+logger(`14. Phòng số chẵn đầu tiền là: ${phongSoChanDauTien}`);
+
+/*
+***NOTE: so sánh giữa filter và find
+* Giống nhau:
+- 2 hàm này gần như tương tự nhau khi cùng duyệt qua mảng và dựa vào điều kiện để lấy ra phần tử
+* Khác nhau: 
+- find sẽ ngưng duyệt mảng khi tìm đc phần tử thoả điều kiện và trả nó ra luôn -> find sẽ return ra 1 phần tử là chuỗi, số hoặc đối tượng
+- filter sẽ duyệt qua tất cả các phần tử của mảng và lấy ra những phần tử nào thoả điều kiện -> filter sẽ return ra 1 mảng có thể là mảng rỗng hoặc chứa những phần tử thoả điều kiện truyền vào
+ */
