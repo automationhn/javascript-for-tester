@@ -124,7 +124,7 @@ newLine();
 
 /*
 7. splice()
-- hàm này để thêm phần tử vào mảng với vị trí xác định, chêm giữa mảng 1 hoặc 1 số phần tửtử
+- hàm này để thêm phần tử vào mảng với vị trí xác định, chêm giữa mảng 1 hoặc 1 số phần tử
 - cú pháp: arr.splice(index, howmany, item1, ....., itemX)
   + index: vị trí muốn thêm phần tử vào
   + howmany: số phần tử sẽ xóa tính tự vị trí thêm mảng, để 0 nếu không muốn xóa phần tử nào.
@@ -194,7 +194,7 @@ const danhSachSoLonXon = [24, 6, 12, 21, 1, 20, 18];
 console.log(`11. Danh sách số CHƯA được ĐẢO NGƯỢC: ${danhSachSoLonXon.join(' - ')}`);
 newLine();
 
-console.log(`11. Danh sách số lộn lộn ĐÃ được ĐẢO NGƯỢC: ${danhSachSoLonXon.reverse().join(' - ')}`);
+console.log(`11. Danh sách số lộn xộn ĐÃ được ĐẢO NGƯỢC: ${danhSachSoLonXon.reverse().join(' - ')}`);
 newLine();
 
 /*

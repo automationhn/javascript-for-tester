@@ -6,11 +6,15 @@
   "scripts": {
     "test": "mocha \"src/__test__/**/*.js\"",
     "run": "babel-node src/index.js",
-    "r": "babel-node src/practices/day_1.js",
+    "r": "babel-node src/practices/day_5.js",
+    "rp": "babel-node src/training/forEach.js",
+    "ra": "babel-node src/training/array.js",
+    "ro": "babel-node src/training/object.js",
     "compile": "babel src --out-dir .compiled --source-maps --watch",
     "lint": "node_modules/.bin/eslint src || true",
     "lint-h": "node_modules/.bin/eslint src",
-    "lint-fix": "node_modules/.bin/eslint --fix src"
+    "lint-fix": "node_modules/.bin/eslint --fix src",
+    "runarray": "babel-node src/training/array.js"
   },
   "keywords": [],
   "author": "",
