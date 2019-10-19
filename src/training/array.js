@@ -200,14 +200,29 @@ newLine();
 /*
 12. forEach()
 - hàm này tương tự với for, dùng để duyệt qua các phần tử trong mảng, nhưng không dùng tới index
+() => {
+
+}
 */
 const propeties = ['Vinpearl Hội An', 'The Grand HoTram', 'Teracotta', 'Phoenix'];
 
 logger('12. Danh sách khách sạn: ');
+
+logger(propeties);
+
+for (let i = 0; i < propeties.length; i++) {
+  const element = propeties[i];
+  console.log(element);
+}
+
 propeties.forEach((element) => {
   console.log(element);
 });
 newLine();
+
+propeties.forEach(function hanh(e) {
+  console.log(e);
+});
 
 /*
 13. filter()
