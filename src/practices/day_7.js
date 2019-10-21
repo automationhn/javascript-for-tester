@@ -44,6 +44,12 @@ const teams = [
     name: 'Salad',
     id: 4,
     dev_lead: 'Hao Sua',
+    dev_lead_address: {
+      number: 179,
+      street: 'Binh Hung',
+      district: 'Binh Thanh',
+      city: 'HCM',
+    },
     qa_lead: 'Cuc Doan',
     members: ['Hanh', 'Nhat', 'Minh', 'Thoai', 'Thao MN', 'Hien', 'Tai', 'Tin', 'T. Anh', 'H. Anh'],
   },
@@ -51,6 +57,12 @@ const teams = [
     name: 'Hotpot',
     id: 5,
     dev_lead: 'Phong Lan',
+    dev_lead_address: {
+      number: 33,
+      street: 'Ho Tu Ki',
+      district: 10,
+      city: 'HCM',
+    },
     qa_lead: 'Y Huynh',
     members: ['Toan', 'An', 'Lan', 'Anh', 'Tri', 'Quoc'],
   },
@@ -58,6 +70,12 @@ const teams = [
     name: 'Cash',
     id: 1,
     dev_lead: 'Hieu Mai',
+    dev_lead_address: {
+      number: 11,
+      street: 'CMT8',
+      district: 3,
+      city: 'HCM',
+    },
     qa_lead: 'Thuy Le',
     members: ['Trung', 'Hue', 'Quynh', 'Thai', 'Thuong', 'Vy'],
   },
@@ -65,6 +83,12 @@ const teams = [
     name: 'SM',
     id: 2,
     dev_lead: 'Mai Le',
+    dev_lead_address: {
+      number: 69,
+      street: 'Biet Thu',
+      district: 7,
+      city: 'HCM',
+    },
     qa_lead: 'C3',
     members: ['Chanh', 'Cuong', 'Hao Hach'],
   },
@@ -73,7 +97,13 @@ newLineWithDash();
 /*
 
 
-7. Viết function tuyền vào mảng teams -> trả về danh sách tất cả các thành viên có trong team mà dev_lead có tên bắt đầu bằng chữ H
+7. Viết function tuyền vào mảng teams -> trả về danh sách các team và số thành viên trong team đó 
+8. Viết function tuyền vào mảng teams -> trả về danh sách các team có số thành viên lớn hơn 5
+9. Viết function tuyền vào mảng teams -> in ra danh sách thông tin dev_lead như sau:
+  1. Salad-Hao Sua-179 Nguyen Xi street, Binh Thanh District, HCM City
+  2. .................................., District 7,..................
+
+10. Viết function tuyền vào mảng teams -> trả về danh sách tất cả các thành viên có trong team mà dev_lead có tên bắt đầu bằng chữ H
 */
 
 //3. Viết function truyền vào mảng teams -> trả ra mảng chứa danh sách tên của tất cả các team
