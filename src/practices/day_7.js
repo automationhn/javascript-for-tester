@@ -20,12 +20,18 @@ const teams = [
     id: 4,
     dev_lead: 'Hao Sua',
     dev_lead_address: {
-      number: 179,
+      number: '179',
       street: 'Binh Hung',
       district: 'Binh Thanh',
       city: 'HCM',
     },
     qa_lead: 'Cuc Doan',
+    qa_lead_address: {
+      number: '258/106',
+      street: 'CMT8',
+      district: 3,
+      city: 'HCM',
+    },
     members: ['Hanh', 'Nhat', 'Minh', 'Thoai', 'Thao MN', 'Hien', 'Tai', 'Tin', 'T. Anh', 'H. Anh'],
   },
   {
@@ -33,12 +39,18 @@ const teams = [
     id: 5,
     dev_lead: 'Phong Lan',
     dev_lead_address: {
-      number: 33,
+      number: '33/34',
       street: 'Ho Tu Ki',
       district: 10,
       city: 'HCM',
     },
     qa_lead: 'Y Huynh',
+    qa_lead_address: {
+      number: '69/619',
+      street: 'Cong Hoa',
+      district: 'Tan Binh',
+      city: 'HCM',
+    },
     members: ['Toan', 'An', 'Lan', 'Anh', 'Tri', 'Quoc'],
   },
   {
@@ -46,12 +58,18 @@ const teams = [
     id: 1,
     dev_lead: 'Hieu Mai',
     dev_lead_address: {
-      number: 11,
+      number: '11/4',
       street: 'CMT8',
       district: 3,
       city: 'HCM',
     },
     qa_lead: 'Thuy Le',
+    qa_lead_address: {
+      number: '45/334',
+      street: 'Le Thuc Hoach',
+      district: 'Tan Phu',
+      city: 'Binh Dinh',
+    },
     members: ['Trung', 'Hue', 'Quynh', 'Thai', 'Thuong', 'Vy'],
   },
   {
@@ -59,12 +77,18 @@ const teams = [
     id: 2,
     dev_lead: 'Mai Le',
     dev_lead_address: {
-      number: 69,
+      number: '69',
       street: 'Biet Thu',
       district: 7,
       city: 'HCM',
     },
     qa_lead: 'C3',
+    qa_lead_address: {
+      number: '258',
+      street: 'Hoang Sa',
+      district: '1',
+      city: 'Binh Duong',
+    },
     members: ['Chanh', 'Cuong', 'Hao Hach'],
   },
 ];
@@ -82,4 +106,10 @@ const teams = [
   2. .................................., District 7,..................
 
 10. Viết function tuyền vào mảng teams -> trả về danh sách tất cả các thành viên có trong team mà dev_lead có tên bắt đầu bằng chữ H
+11. Viết function tuyền vào mảng teams -> in ra danh sách thông tin qa_lead như sau:
+  1. Team: Salad, Name: Cuc Doan, Address: 106 lane of 258 CMT8 street, District 3, HCM City
+  2. ......................................69 Cong Hoa street, Tan Binh District, HCM City
+12. Viết function tuyền vào mảng teams -> in ra danh sách thông tin dev_lead và qa_lead như sau:
+  1. Team: Salad | Dev_Lead: Hao Sua - Address: 179 Nguyen Xi street, Binh Thanh District, HCM City | Qa_Lead: Cuc Doan - Address: 106 lane of 258 CMT8 street, District 3, HCM City
+  2. ...
 */
