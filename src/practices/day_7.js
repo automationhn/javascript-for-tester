@@ -94,17 +94,7 @@ const teams = [
   },
 ];
 newLineWithDash();
-/*
 
-
-7. Viết function tuyền vào mảng teams -> trả về danh sách các team và số thành viên trong team đó 
-8. Viết function tuyền vào mảng teams -> trả về danh sách các team có số thành viên lớn hơn 5
-9. Viết function tuyền vào mảng teams -> in ra danh sách thông tin dev_lead như sau:
-  1. Salad-Hao Sua-179 Nguyen Xi street, Binh Thanh District, HCM City
-  2. .................................., District 7,..................
-
-10. Viết function tuyền vào mảng teams -> trả về danh sách tất cả các thành viên có trong team mà dev_lead có tên bắt đầu bằng chữ H
-*/
 
 //3. Viết function truyền vào mảng teams -> trả ra mảng chứa danh sách tên của tất cả các team
 logger('cau 3');
@@ -158,3 +148,82 @@ function largestTeam(data){
 const theLargestTeam = largestTeam(teams);
 logger(theLargestTeam);
 newLineWithDash();
+
+//7. Viết function tuyền vào mảng teams -> trả về danh sách các team và số thành viên trong team đó 
+logger('cau 7');
+function membersByTeam(data){
+  const filterTeam = [];
+  data.forEach((ele)=> {
+    const name = ele.name;
+    const totalMems = ele.members.length;
+    filterTeam.push({name,totalMems});
+  })
+  return filterTeam;
+};
+const filterMemByTeam = membersByTeam(teams);
+logger(filterMemByTeam);
+newLineWithDash();
+
+//8. Viết function tuyền vào mảng teams -> trả về danh sách các team có số thành viên lớn hơn 5
+logger('cau 8');
+function teamHasMoreThan5(data) {
+  const totalMemsGreater5 = data.filter((ele) => { return ele.members.length > 5; });
+  return totalMemsGreater5;
+}
+
+const teamHasMoreThan5a  = teamHasMoreThan5(teams);
+logger(teamHasMoreThan5a);
+newLineWithDash();
+
+/*9. Viết function tuyền vào mảng teams -> in ra danh sách thông tin dev_lead như sau:
+1. Salad-Hao Sua-179 Nguyen Xi street, Binh Thanh District, HCM City
+2. .................................., District 7,..................*/
+
+logger('cau 9');
+
+function getAddressOther(address) {
+  const { number, street, district, city } = address;
+  let formatedDistrict = `${district} District`;
+  if (parseInt(district) > 0){
+    formatedDistrict = `District ${district}`;
+  }
+  return `${number} ${street} st, ${formatedDistrict}, ${city} City`;
+} 
+
+function ditLep(data){
+  const dsDitLep = [];
+  data.forEach((ele) => {
+    const {name, dev_lead: devLead, dev_lead_address: address} = ele;
+    dsDitLep.push(`${name} - ${devLead} - ${getAddressOther(address)}`);
+  });
+  return dsDitLep;
+}
+const ditLepAddress  = ditLep(teams);
+logger(ditLepAddress);
+newLineWithDash();
+
+
+
+//10. Viết function tuyền vào mảng teams -> trả về danh sách tất cả các thành viên có trong team mà dev_lead có tên bắt đầu bằng chữ H
+logger('cau 10');
+function teamOfHDev(data){
+  const teamH = data.filter((ele) => {
+    const ditLeplist = ele.dev_lead;
+    const filterList = ditLeplist.startsWith('H');
+    return filterList;
+   });
+  let all = [];
+  teamH.forEach((ele) => {
+    const { members, qa_lead } = ele;
+    all.push(...members, qa_lead);
+  });
+  return all;
+}; 
+
+const abc = teamOfHDev(teams);
+logger(abc);
+
+
+// const qaLeader = teamH.filter((ele) => {return ele.qa_lead});
+// const mems = teamH.filter((ele) => {return ele.members});
+// const noi = qaLeader.concat(mems);
