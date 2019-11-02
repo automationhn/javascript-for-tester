@@ -117,6 +117,58 @@ const teams = [
     members: ['Chanh', 'Cuong', 'Hao Hach'],
   },
 ];
+
+const scrum_master_by_team = [
+  {
+    id: 1,
+    team_id: 4,
+    sm: 'Cuong',
+  },
+  {
+    id: 2,
+    team_id: 5,
+    sm: 'Chanh',
+  },
+  {
+    id: 3,
+    team_id: 1,
+    sm: 'Hao Hach',
+  },
+];
+
+const features = [
+  {
+    id: 1,
+    name: 'Accumulation',
+    team_ids: [5, 4],
+  },
+  {
+    id: 2,
+    name: 'Vendor',
+    team_ids: [4],
+  },
+  {
+    id: 3,
+    name: 'Cash drawer',
+    team_ids: [1],
+  },
+  {
+    id: 4,
+    name: 'Transfer',
+    team_ids: [5, 4, 1],
+  },
+  {
+    id: 5,
+    name: 'GL Report',
+    team_ids: [5],
+  },
+  {
+    id: 6,
+    name: 'Backdating',
+    team_ids: [4],
+  },
+];
+
 newLineWithDash();
 
 
@@ -276,6 +328,10 @@ function qaLeadInfo(data){
 const qaLeadAddress  = qaLeadInfo(teams);
 logger(qaLeadAddress);
 newLineWithDash();
+// const qaLeader = teamH.filter((ele) => {return ele.qa_lead});
+// const mems = teamH.filter((ele) => {return ele.members});
+// const noi = qaLeader.concat(mems);
+
 
 /*
 12. Viết function tuyền vào mảng teams -> in ra danh sách thông tin dev_lead và qa_lead như sau:
@@ -294,3 +350,13 @@ function teamLeadInfo(data){
 }
 const leaderInfo = teamLeadInfo(teams);
 logger(leaderInfo);
+
+/*
+13. Thêm thuộc tính number_of_member để thể hiện số lượng thành viên trong mỗi team (tính cả Dev_lead và Qa_lead)
+
+14. Dựa vào danh sách scrum_master_by_team, in ra danh sách team và sm tương ứng, nếu team ko có SM thì lấy Dev_lead
+  1. Team: Salad | SM: Cuong
+  2. Team: Hotpot | SM: Chanh
+  3. Team: Cashier | SM: Hao Hach
+  4. Team: SM | SM: Mai Le
+*/
