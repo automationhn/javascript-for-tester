@@ -117,6 +117,58 @@ const teams = [
     members: ['Chanh', 'Cuong', 'Hao Hach'],
   },
 ];
+
+const scrum_master_by_team = [
+  {
+    id: 1,
+    team_id: 4,
+    sm: 'Cuong',
+  },
+  {
+    id: 2,
+    team_id: 5,
+    sm: 'Chanh',
+  },
+  {
+    id: 3,
+    team_id: 1,
+    sm: 'Hao Hach',
+  },
+];
+
+const features = [
+  {
+    id: 1,
+    name: 'Accumulation',
+    team_ids: [5, 4],
+  },
+  {
+    id: 2,
+    name: 'Vendor',
+    team_ids: [4],
+  },
+  {
+    id: 3,
+    name: 'Cash drawer',
+    team_ids: [1],
+  },
+  {
+    id: 4,
+    name: 'Transfer',
+    team_ids: [5, 4, 1],
+  },
+  {
+    id: 5,
+    name: 'GL Report',
+    team_ids: [5],
+  },
+  {
+    id: 6,
+    name: 'Backdating',
+    team_ids: [4],
+  },
+];
+
 newLineWithDash();
 
 
@@ -214,7 +266,7 @@ function getAddressOther(address) {
   return `${number} ${street} st, ${formatedDistrict}, ${city} City`;
 } 
 
-function ditLep(data){
+function getAddressOfDevLead(data){
   const dsDitLep = [];
   data.forEach((ele) => {
     const {name, dev_lead: devLead, dev_lead_address: address} = ele;
@@ -222,7 +274,7 @@ function ditLep(data){
   });
   return dsDitLep;
 }
-const ditLepAddress  = ditLep(teams);
+const ditLepAddress  = getAddressOfDevLead(teams);
 logger(ditLepAddress);
 newLineWithDash();
 
@@ -246,6 +298,7 @@ function teamOfHDev(data){
 
 const abc = teamOfHDev(teams);
 logger(abc);
+newLineWithDash();
 
 
 /*11. Viết function tuyền vào mảng teams -> in ra danh sách thông tin qa_lead như sau:
@@ -281,16 +334,59 @@ newLineWithDash();
 12. Viết function tuyền vào mảng teams -> in ra danh sách thông tin dev_lead và qa_lead như sau:
   1. Team: Salad | Dev_Lead: Hao Sua - Address: 179 Nguyen Xi street, Binh Thanh District, HCM City | Qa_Lead: Cuc Doan - Address: 106 lane of 258 CMT8 street, District 3, HCM City
   2. ...
+
 */
 
+
 logger('cau 12');
-function teamLeadInfo(data){
+function getTeamLeadInfo(data){
   const infoOfTeamLead = [];
   data.forEach((ele) => {
-    const {name, qa_lead: qaLead, qa_lead_address: address, dev_lead: devLead, dev_lead_address: address1} = ele;
-    infoOfTeamLead.push(`Team: ${name} | Dev_Lead: ${devLead} - Address: ${ditLep(address)} | Qa_Lead: ${qaLead}, Address: ${ngoiNhaTrongHem(address1)}`);
+    const {name, qa_lead: qaLead, qa_lead_address: addressOfQaLead, dev_lead: devLead, dev_lead_address: addressOfDevLead} = ele;
+    infoOfTeamLead.push(`Team: ${name} | Dev_Lead: ${devLead} - Address: ${ngoiNhaTrongHem(addressOfDevLead)} | Qa_Lead: ${qaLead}, Address: ${ngoiNhaTrongHem(addressOfQaLead)}`);
   }) 
   return infoOfTeamLead;
 }
-const leaderInfo = teamLeadInfo(teams);
+const leaderInfo = getTeamLeadInfo(teams);
 logger(leaderInfo);
+newLineWithDash();
+
+//13. Thêm thuộc tính number_of_member để thể hiện số lượng thành viên trong mỗi team (tính cả Dev_lead và Qa_lead)
+logger('cau 13');
+function addNewElement (data){
+  const newObject = [];
+  data.forEach((ele) => {
+    const memOfTeam = Object.assign(ele, { number_of_member: ele.members.length+2 });
+    newObject.push(memOfTeam);
+  })
+  return newObject;
+}
+const newTeams = addNewElement(teams);
+logger(newTeams);
+newLineWithDash();
+
+
+/*
+14. Dựa vào danh sách scrum_master_by_team, in ra danh sách team và sm tương ứng, nếu team ko có SM thì lấy Dev_lead
+  1. Team: Salad | SM: Cuong
+  2. Team: Hotpot | SM: Chanh
+  3. Team: Cashier | SM: Hao Hach
+  4. Team: SM | SM: Mai Le */
+  function scrumMasterByTeam (data, smArray){
+    let no = 0;
+    return data.map((ele) => {
+      const { id: teamId, name: teamName, dev_lead: devLeadName } = ele;
+      const smByTeamId = smArray.find((ele) => {
+        return ele.team_id === teamId;
+      });
+      let smName = devLeadName;
+      if (smByTeamId !== undefined) {
+        smName = smByTeamId.sm;
+      }
+      no += 1;
+      return `${no}. Team: ${teamName} | SM: ${smName}`;
+    });
+  };
+  const smOfTeam = scrumMasterByTeam(teams,scrum_master_by_team);
+  logger(smOfTeam);
+  newLineWithDash();
