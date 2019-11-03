@@ -389,3 +389,11 @@ newLineWithDash();
   const smOfTeam = scrumMasterByTeam(teams,scrum_master_by_team);
   logger(smOfTeam);
   newLineWithDash();
+
+  /*
+  15. Viết function trả về tên của 1 hoặc nhiều team tham gia trong feature Transfer
+
+  16. Viết function nhân vào tên feature bất kì và trả về tên của những thành viên có tham gia trong feature đó (dev and qa only)
+
+  17. Viết function nhân vào tên feature bất kì và trả về tên của những thành viên có tham gia trong feature đó (dev, qa, leader, sm)
+  */
