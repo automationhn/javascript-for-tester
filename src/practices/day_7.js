@@ -329,22 +329,11 @@ function qaLeadInfo(data){
 const qaLeadAddress  = qaLeadInfo(teams);
 logger(qaLeadAddress);
 newLineWithDash();
-<<<<<<< HEAD
-// const qaLeader = teamH.filter((ele) => {return ele.qa_lead});
-// const mems = teamH.filter((ele) => {return ele.members});
-// const noi = qaLeader.concat(mems);
-
-=======
->>>>>>> b82d6731573a39f7c79dcc5d49f9fbfc0b1b8844
 
 /*
 12. Viết function tuyền vào mảng teams -> in ra danh sách thông tin dev_lead và qa_lead như sau:
   1. Team: Salad | Dev_Lead: Hao Sua - Address: 179 Nguyen Xi street, Binh Thanh District, HCM City | Qa_Lead: Cuc Doan - Address: 106 lane of 258 CMT8 street, District 3, HCM City
   2. ...
-<<<<<<< HEAD
-=======
-
->>>>>>> b82d6731573a39f7c79dcc5d49f9fbfc0b1b8844
 */
 
 
@@ -359,12 +348,6 @@ function getTeamLeadInfo(data){
 }
 const leaderInfo = getTeamLeadInfo(teams);
 logger(leaderInfo);
-<<<<<<< HEAD
-
-/*
-13. Thêm thuộc tính number_of_member để thể hiện số lượng thành viên trong mỗi team (tính cả Dev_lead và Qa_lead)
-
-=======
 newLineWithDash();
 
 //13. Thêm thuộc tính number_of_member để thể hiện số lượng thành viên trong mỗi team (tính cả Dev_lead và Qa_lead)
@@ -383,15 +366,10 @@ newLineWithDash();
 
 
 /*
->>>>>>> b82d6731573a39f7c79dcc5d49f9fbfc0b1b8844
 14. Dựa vào danh sách scrum_master_by_team, in ra danh sách team và sm tương ứng, nếu team ko có SM thì lấy Dev_lead
   1. Team: Salad | SM: Cuong
   2. Team: Hotpot | SM: Chanh
   3. Team: Cashier | SM: Hao Hach
-<<<<<<< HEAD
-  4. Team: SM | SM: Mai Le
-*/
-=======
   4. Team: SM | SM: Mai Le */
   function scrumMasterByTeam (data, smArray){
     let no = 0;
@@ -411,4 +389,3 @@ newLineWithDash();
   const smOfTeam = scrumMasterByTeam(teams,scrum_master_by_team);
   logger(smOfTeam);
   newLineWithDash();
->>>>>>> b82d6731573a39f7c79dcc5d49f9fbfc0b1b8844
