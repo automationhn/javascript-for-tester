@@ -396,4 +396,5 @@ newLineWithDash();
   16. Viết function nhân vào tên feature bất kì và trả về tên của những thành viên có tham gia trong feature đó (dev and qa only)
 
   17. Viết function nhân vào tên feature bất kì và trả về tên của những thành viên có tham gia trong feature đó (dev, qa, leader, sm)
+  Done
   */
