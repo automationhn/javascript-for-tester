@@ -371,6 +371,8 @@ newLineWithDash();
   2. Team: Hotpot | SM: Chanh
   3. Team: Cashier | SM: Hao Hach
   4. Team: SM | SM: Mai Le */
+  newLineWithDash();
+  logger('cau 14');
   function scrumMasterByTeam (data, smArray){
     let no = 0;
     return data.map((ele) => {
@@ -390,10 +392,84 @@ newLineWithDash();
   logger(smOfTeam);
   newLineWithDash();
 
-  /*
-  15. Viết function trả về tên của 1 hoặc nhiều team tham gia trong feature Transfer
+ // 15. Viết function trả về tên của 1 hoặc nhiều team tham gia trong feature Transfer
+ newLineWithDash();
+ logger('cau 15');
+ /* Hanh
+ function teamWorkInTransfer (data, featureArr, feature){
+  const teamIdByFeature = featureArr.find((ele) => {
+    return ele.name === feature
+  });
+  const result = [];
+  for (let i = 0; i < data.length; i++){
+    let team = data[i];
+    if (teamIdByFeature.team_ids.includes(team.id)){
+      result.push(team.name);
+    }
+  }
+  return result;
+ }
+*/
 
-  16. Viết function nhân vào tên feature bất kì và trả về tên của những thành viên có tham gia trong feature đó (dev and qa only)
+function teamWorkInTransfer1 (data, featureArr, feature){
+  const teamsIdByFeature = featureArr.find((ele) => {
+    return ele.name === feature;
+  });
 
-  17. Viết function nhân vào tên feature bất kì và trả về tên của những thành viên có tham gia trong feature đó (dev, qa, leader, sm)
-  */
+ return data.reduce((acc, team) => {
+   if (teamsIdByFeature.team_ids.includes(team.id)) {
+    acc.push(team.name);
+   }
+   return acc;
+ }, []);
+}
+
+ const teamWorksByFeature = teamWorkInTransfer1(teams, features, 'Transfer');
+ logger(teamWorksByFeature);
+ newLineWithDash();
+
+ //16. Viết function nhân vào tên feature bất kì và trả về tên của những thành viên có tham gia trong feature đó (dev and qa only)
+ newLineWithDash();
+ logger('cau 16');
+ function teamMemsByFeature (data, featureArr, feature) {
+  const teamsIdByFeature = featureArr.find((ele) => {
+    return ele.name === feature;
+  });
+  return data.reduce((acc, team) => {
+    if (teamsIdByFeature.team_ids.includes(team.id)) {
+     acc.push(...team.members);
+    }
+    return acc;
+  }, []);
+ }
+  
+ const teamMembersByFeature = teamMemsByFeature(teams, features, 'Vendor');
+ logger(teamMembersByFeature);
+ newLineWithDash();
+
+//17. Viết function nhân vào tên feature bất kì và trả về tên của những thành viên có tham gia trong feature đó (dev, qa, leader, sm)
+newLineWithDash();
+logger('cau 17');
+function getAllMemsByFeature (data, smArray, featureArr, feature){
+  const teamsIdByFeature = featureArr.find((ele) => {
+    return ele.name === feature;
+  });
+  const result = [];
+  for (let i = 0; i < smArray.length; i++){
+    let smData = smArray[i];
+    if (teamsIdByFeature.team_ids.includes(smData.team_id)){
+      result.push(smData.sm);
+    }
+  }
+  const result2 = [];
+  for (let i = 0; i < data.length; i++){
+    let teamData = data[i];
+    if (teamsIdByFeature.team_ids.includes(teamData.id)){
+      result2.push(teamData.members, teamData.qa_lead, teamData.dev_lead);
+    }
+  }
+  return result.concat(...result2)
+ }
+ const getAllMembersByFeature = getAllMemsByFeature(teams, scrum_master_by_team, features, 'Transfer');
+ logger(getAllMembersByFeature);
+ newLineWithDash();
