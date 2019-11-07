@@ -470,6 +470,6 @@ function getAllMemsByFeature (data, smArray, featureArr, feature){
   }
   return result.concat(...result2)
  }
- const getAllMembersByFeature = getAllMemsByFeature(teams, scrum_master_by_team, features, 'Transfer');
+ const getAllMembersByFeature = getAllMemsByFeature(teams, scrum_master_by_team, features, 'Backdatinmoimoig');
  logger(getAllMembersByFeature);
  newLineWithDash();
