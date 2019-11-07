@@ -141,31 +141,37 @@ const features = [
     id: 1,
     name: 'Accumulation',
     team_ids: [5, 4],
+    points: 8,
   },
   {
     id: 2,
     name: 'Vendor',
     team_ids: [4],
+    points: 3,
   },
   {
     id: 3,
     name: 'Cash drawer',
     team_ids: [1],
+    points: 5,
   },
   {
     id: 4,
     name: 'Transfer',
     team_ids: [5, 4, 1],
+    points: 5,
   },
   {
     id: 5,
     name: 'GL Report',
     team_ids: [5],
+    points: 2,
   },
   {
     id: 6,
     name: 'Backdating',
     team_ids: [4],
+    points: 13,
   },
 ];
 
@@ -473,3 +479,17 @@ function getAllMemsByFeature (data, smArray, featureArr, feature){
  const getAllMembersByFeature = getAllMemsByFeature(teams, scrum_master_by_team, features, 'Transfer');
  logger(getAllMembersByFeature);
  newLineWithDash();
+
+ //18. Viết function nhận vào tên team bất kì và trả về những feature mà team đó đã tham gia 
+ //ex: Salad: ['Accumulation', 'Transfers']
+
+ //19. Viết function nhận vào tên team bất kì và trả về tổng số point mà team đó đã làm đc dựa vào thuộc tính point trong featuresArr
+ //ex: Salad: 69 points
+
+ //20. Viết function in ra danh sách team và tổng số point mà team đó đã làm đc dựa vào thuộc tính point trong featuresArr, xếp hạng team nào làm đc nhiều point nhất
+ //ex:  Salad: 69 points
+ //     Hotpot: 30 points
+ //     Cashier: 15 ponts
+ //     SM: 0 points
+
+ // Note: cố gắng viết những function nhỏ có thể dùng chung đc cho những function lớn, tái sử dụng đc function, ko làm code bị duplicate
