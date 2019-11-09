@@ -141,31 +141,37 @@ const features = [
     id: 1,
     name: 'Accumulation',
     team_ids: [5, 4],
+    points: 8,
   },
   {
     id: 2,
     name: 'Vendor',
     team_ids: [4],
+    points: 3,
   },
   {
     id: 3,
     name: 'Cash drawer',
     team_ids: [1],
+    points: 5,
   },
   {
     id: 4,
     name: 'Transfer',
     team_ids: [5, 4, 1],
+    points: 5,
   },
   {
     id: 5,
     name: 'GL Report',
     team_ids: [5],
+    points: 2,
   },
   {
     id: 6,
     name: 'Backdating',
     team_ids: [4],
+    points: 13,
   },
 ];
 
@@ -454,6 +460,8 @@ function getAllMemsByFeature (data, smArray, featureArr, feature){
   const teamsIdByFeature = featureArr.find((ele) => {
     return ele.name === feature;
   });
+  if (teamsIdByFeature === undefined) { 
+    return `Team Feature is not existed, please recheck`};
   const result = [];
   for (let i = 0; i < smArray.length; i++){
     let smData = smArray[i];
@@ -470,6 +478,77 @@ function getAllMemsByFeature (data, smArray, featureArr, feature){
   }
   return result.concat(...result2)
  }
- const getAllMembersByFeature = getAllMemsByFeature(teams, scrum_master_by_team, features, 'Backdatinmoimoig');
+ const getAllMembersByFeature = getAllMemsByFeature(teams, scrum_master_by_team, features, 'Backdatinga');
  logger(getAllMembersByFeature);
+ newLineWithDash();
+
+ //18. Viết function nhận vào tên team bất kì và trả về những feature mà team đó đã tham gia 
+ //ex: Salad: ['Accumulation', 'Transfers']
+ newLineWithDash();
+ logger('cau 18');
+ function getTeamNameByID (data, feature, teamName){
+  const teamNameById = data.find((ele) => {
+    return ele.name === teamName;
+  })
+  if (teamNameById === undefined) { 
+    return `Team Name is not existed, please recheck`};
+  const teamFeatureById = feature.filter ((ele) => {
+    return ele.team_ids.includes(teamNameById.id)
+  })
+  if (teamFeatureById.length === 0){
+    return `${teamName}: is the management team`;
+  }
+  const allFeatureByTeam = teamFeatureById.map((ele) => {
+    return ele.name;
+  })
+  return `${teamName}: ${allFeatureByTeam}`;
+}
+ const teamFeature = getTeamNameByID(teams, features, 'SM');
+ logger(teamFeature);
+ newLineWithDash();
+ 
+  //19. Viết function nhận vào tên team bất kì và trả về tổng số point mà team đó đã làm đc dựa vào thuộc tính point trong features
+ //ex: Salad: 69 points
+ newLineWithDash();
+ logger('cau 19');
+ function getPointsByTeam (data, feature, teamName){
+  const teamNameInData = data.find((ele) => {
+    return ele.name === teamName;
+  })
+  if (teamNameInData === undefined) { 
+    return `Team Name is not existed, please recheck`};
+  const teamFeatureById = feature.filter ((ele) => {
+    return ele.team_ids.includes(teamNameInData.id)
+  })
+  let total = 0;
+  teamFeatureById.forEach ((ele) => {
+    total = total + ele.points;
+  })
+  return {Team: teamName, totalPoints: total};
+ }
+ const pointsTotal = getPointsByTeam(teams, features, 'Salad');
+ logger(pointsTotal);
+ newLineWithDash();
+
+ //20. Viết function in ra danh sách team và tổng số point mà team đó đã làm đc dựa vào thuộc tính point trong features, xếp hạng team nào làm đc nhiều point nhất
+ //ex:  Salad: 69 points
+ //     Hotpot: 30 points
+ //     Cashier: 15 ponts
+ //     SM: 0 points
+
+ // Note: cố gắng viết những function nhỏ có thể dùng chung đc cho những function lớn, tái sử dụng đc function, ko làm code bị duplicate
+ newLineWithDash();
+ logger('cau 20');
+ function sortTeamByPoints (data, features){
+  const result = [];
+  data.forEach((ele) => {
+    result.push(getPointsByTeam(data, features, ele.name));
+  })
+  result.sort((a, b) => {
+    return a.points - b.points;
+  })
+  return result;
+ }
+ const pointsByTeam = sortTeamByPoints(teams, features);
+ logger(pointsByTeam);
  newLineWithDash();
