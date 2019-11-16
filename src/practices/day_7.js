@@ -99,7 +99,7 @@ const teams = [
   },
   {
     name: 'SM',
-    id: 2,
+    id: 69,
     dev_lead: 'Mai Le',
     dev_lead_address: {
       number: '69',
@@ -115,6 +115,44 @@ const teams = [
       city: 'Binh Duong',
     },
     members: ['Chanh', 'Cuong', 'Hao Hach'],
+  },
+  {
+    name: 'Yogurt',
+    id: 2,
+    dev_lead: 'Van Nguyen',
+    dev_lead_address: {
+      number: '19',
+      street: 'CMT8',
+      district: 3,
+      city: 'HCM',
+    },
+    qa_lead: 'Ha Sach Se',
+    qa_lead_address: {
+      number: '999',
+      street: 'San Bay',
+      district: 'Orchest Garden',
+      city: 'Binh Dinh',
+    },
+    members: ['Yen', 'Long', 'Tuan', 'Phuc', 'Hong', 'Cuong'],
+  },
+  {
+    name: 'Ketchup',
+    id: 3,
+    dev_lead: 'Thanh Luu',
+    dev_lead_address: {
+      number: '19',
+      street: 'CMT8',
+      district: 3,
+      city: 'HCM',
+    },
+    qa_lead: 'Thu Duc',
+    qa_lead_address: {
+      number: '696',
+      street: 'San Ong',
+      district: 'Binh Tan',
+      city: 'Binh Duong',
+    },
+    members: ['Duc', 'Long Big', 'Dung', 'Tran Anh', 'Vu'],
   },
 ];
 
@@ -134,19 +172,29 @@ const scrum_master_by_team = [
     team_id: 1,
     sm: 'Hao Hach',
   },
+  {
+    id: 4,
+    team_id: 2,
+    sm: 'Chanh',
+  },
+  {
+    id: 5,
+    team_id: 3,
+    sm: 'Gioan',
+  },
 ];
 
 const features = [
   {
     id: 1,
     name: 'Accumulation',
-    team_ids: [5, 4],
+    team_ids: [5, 4, 2],
     points: 8,
   },
   {
     id: 2,
     name: 'Vendor',
-    team_ids: [4],
+    team_ids: [4, 3, 1],
     points: 3,
   },
   {
@@ -164,14 +212,82 @@ const features = [
   {
     id: 5,
     name: 'GL Report',
-    team_ids: [5],
+    team_ids: [5, 2],
     points: 2,
   },
   {
     id: 6,
     name: 'Backdating',
-    team_ids: [4],
+    team_ids: [4, 5],
     points: 13,
+  },
+];
+
+const velocities = [
+  {
+    id: 'v_0001',
+    name: "Sprint 0",
+    sprint_number: 0,
+    teams: [
+      {
+        team_id: 1,
+        points: 13
+      },
+      {
+        team_id: 2,
+        points: 13
+      },
+      {
+        team_id: 3,
+        points: 11
+      }
+    ]
+  },
+  {
+    id: 'v_0002',
+    name: "Sprint 1",
+    sprint_number: 1,
+    teams: [
+      {
+        team_id: 1,
+        points: 14
+      },
+      {
+        team_id: 2,
+        points: 15
+      },
+      {
+        team_id: 3,
+        points: 12
+      },
+      {
+        team_id: 4,
+        points: 8
+      }
+    ]
+  },
+  {
+    id: 'v_0003',
+    name: "Sprint 2",
+    sprint_number: 2,
+    teams: [
+      {
+        team_id: 2,
+        points: 18
+      },
+      {
+        team_id: 3,
+        points: 15
+      },
+      {
+        team_id: 4,
+        points: 15
+      },
+      {
+        team_id: 5,
+        points: 5
+      }
+    ]
   },
 ];
 
@@ -552,3 +668,19 @@ function getAllMemsByFeature (data, smArray, featureArr, feature){
  const pointsByTeam = sortTeamByPoints(teams, features);
  logger(pointsByTeam);
  newLineWithDash();
+
+ /*
+ 21. Dựa vào velocities, tính số points đã làm đc qua mỗi spints
+ ex: 
+ sprint 0: 5 points
+ sprint 1: 10 points
+ ...
+
+ 22. Viết function truyền vào tên team và trả về số point mà team đó làm được từ đầu đến hiện tại
+ ex: let a = function CountVelocityByTeam(name) {...}
+ console(a) => Salad: 69 points
+
+ 23. Viết function trả về danh sách team và số point mà team đó làm đc dựa vào velocity
+
+ 24. Viết function tìm ra SM đạt hiệu quả cao nhất (quản lý team có velocity cao nhất từ đầu tới hiện tại)
+  */
