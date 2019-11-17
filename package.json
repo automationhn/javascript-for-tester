@@ -10,6 +10,7 @@
     "rp": "babel-node src/training/forEach.js",
     "ra": "babel-node src/training/array.js",
     "ro": "babel-node src/training/object.js",
+    "rl": "babel-node src/training/loop.js",
     "compile": "babel src --out-dir .compiled --source-maps --watch",
     "lint": "node_modules/.bin/eslint src || true",
     "lint-h": "node_modules/.bin/eslint src",
