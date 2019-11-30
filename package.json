@@ -4,7 +4,7 @@
   "description": "",
   "main": "test.js",
   "scripts": {
-    "test": "mocha \"src/__test__/**/*.js\"",
+    "test": "mocha --require babel-core/register \"src/__test__/**/*.js\"",
     "run": "babel-node src/index.js",
     "r": "babel-node src/practices/day_7.js",
     "rp": "babel-node src/training/forEach.js",
@@ -15,7 +15,7 @@
     "lint": "node_modules/.bin/eslint src || true",
     "lint-h": "node_modules/.bin/eslint src",
     "lint-fix": "node_modules/.bin/eslint --fix src",
-    "runarray": "babel-node src/training/array.js"
+    "runarray": "babel-node src/training/array.js",
   },
   "keywords": [],
   "author": "",
