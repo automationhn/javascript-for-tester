@@ -15,7 +15,7 @@
     "lint": "node_modules/.bin/eslint src || true",
     "lint-h": "node_modules/.bin/eslint src",
     "lint-fix": "node_modules/.bin/eslint --fix src",
-    "runarray": "babel-node src/training/array.js",
+    "runarray": "babel-node src/training/array.js"
   },
   "keywords": [],
   "author": "",

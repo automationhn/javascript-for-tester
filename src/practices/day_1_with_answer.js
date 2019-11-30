@@ -92,7 +92,7 @@ import generateFullName from '../utils/generateFullName';
 import calculateAverageScore from '../utils/calculateAverageScore';
 import logger, { newLine } from '../utils/logger';
 
-import studentList from './data/studentList';
+import studentList from '../data/studentList';
 
 /* --- ĐÁP ÁN --- */
 

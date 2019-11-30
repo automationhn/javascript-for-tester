@@ -7,7 +7,7 @@
 /* eslint-disable no-console */
 /* eslint-disable eol-last */
 import logger, { newLine, newLineWithDash } from '../utils/logger';
-import studentList from '../practices/data/studentList';
+import studentList from '../data/studentList';
 
 /*
 Cho 1 mảng, thực hiện mọi hàm dùng để truy xuất và tương tác với mảng đó.
