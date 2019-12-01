@@ -1,8 +1,8 @@
 {
-    "presets": [
-      "es2015"
-    ],
-    "plugins": [
+  "presets": [
+    "latest"
+  ],
+  "plugins": [
       "transform-object-rest-spread"
     ]
 }
