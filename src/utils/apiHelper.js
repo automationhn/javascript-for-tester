@@ -2,7 +2,6 @@
 var request = require('request');
 
 const getAsync = function(url) {
-  console.log(url);
   return new Promise(
     (resolve, reject) => {
       request.get(url, function(error, data){
@@ -50,8 +49,23 @@ const patchAsync = function(url, postData) {
  );
 };
 
+const deleteAsync = function(url) {
+  return new Promise(
+    (resolve, reject) => {
+      request.delete(url, function(error, data){
+        if (error) {
+          reject(error);
+        }
+        resolve(data && data.body && JSON.parse(data.body));
+      })
+   }
+ );
+};
+
+
 export { 
   getAsync,
   postAsync,
-  patchAsync
+  patchAsync,
+  deleteAsync
 };

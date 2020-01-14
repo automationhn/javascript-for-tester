@@ -1,25 +1,38 @@
 /* eslint-disable no-undef */
 const assert = require('assert');
 import configyml from 'config-yml'; 
-import { getAsync, postAsync, patchAsync } from '../utils/apiHelper';
+import { getAsync, postAsync, patchAsync, deleteAsync } from '../utils/apiHelper';
 const host = configyml.host;
 
 describe('test Get API', () => {
-  describe('get teams', () => {
-    it('should return right', async function () {
+  describe('get list titles', () => {
+    it('should return pass when the number of title is matched', async function () {
       // Arrange
-      const urlGetTeams = `${host}/teams/v2`;
+      const urlGetTitles = `${host}/titles`;
 
       // Action
-      const teams = await getAsync(urlGetTeams);
+      const titles = await getAsync(urlGetTitles);
 
       // Assert
-      assert.equal(teams.length, 2, 'The result should be matched');
+      assert.equal(titles.length, 9, 'The number of title is not matched');
+    });
+
+    it('should return pass when the first title is matched', async function () {
+      // Arrange
+      const urlGetTitles = `${host}/titles`;
+
+      // Action
+      const titles = await getAsync(urlGetTitles);
+
+      // Assert
+      const firstTitle = titles[0];
+      assert.equal(firstTitle.title, 'Software Engineer', 'The title is not matched');
+      assert.equal(firstTitle.short_title, 'SE', 'The short_title is not matched');
     });
   });
 });
 
-xdescribe('test POST API', () => {
+describe('test POST API', () => {
   describe('post new title', () => {
     it('should create new title', async function () {
       // Arrange
@@ -34,6 +47,11 @@ xdescribe('test POST API', () => {
       const titles = await getAsync(urlTitles);
       assert.equal(titles.length, titleBeforeAdding.length + 1, 'The number of titles must be consistent');
       assert.equal(result.status_code, 201, 'The status code must be 201');
+
+      const listTitle = await getAsync(urlTitles);
+      const lastTitleId = listTitle[listTitle.length - 1].id;
+      await deleteAsync(`${host}/titles/${lastTitleId}`);
+
     });
 
     it('should return error when the post data is not correct', async function () {
@@ -53,7 +71,7 @@ xdescribe('test POST API', () => {
   });
 });
 
-xdescribe('test PATCH API', () => {
+describe('test PATCH API', () => {
   describe('update the existed title', () => {
     it('should update the existed title successfully', async function () {
       // Arrange
